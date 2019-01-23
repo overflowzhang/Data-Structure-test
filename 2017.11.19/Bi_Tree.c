@@ -18,12 +18,12 @@ int Init_Tree(treenode *node){
 	return OK;
 }
 
-void Creat_Tree(Tree* tree){//´´½¨¶ş²æÊ÷£¨¶şÖØÖ¸Õë£©
+void Creat_Tree(Tree* tree){//åˆ›å»ºäºŒå‰æ ‘ï¼ˆäºŒé‡æŒ‡é’ˆï¼‰
 	char data;
 	char ch;
-	printf("ÇëÊäÈë½ÚµãµÄÖµ£¬ÀàĞÍÎª×Ö·û£º\n");
+	printf("è¯·è¾“å…¥èŠ‚ç‚¹çš„å€¼ï¼Œç±»å‹ä¸ºå­—ç¬¦ï¼š\n");
 	scanf("%c",&data);
-	ch = getchar();      //ÎüÊÕ»Ø³µ
+	ch = getchar();      //å¸æ”¶å›è½¦
 	if('0'==data)
 		*tree = NULL;
 	else
@@ -39,7 +39,7 @@ void Creat_Tree(Tree* tree){//´´½¨¶ş²æÊ÷£¨¶şÖØÖ¸Õë£©
 	}
 }
 
-void All_Path(treenode *tree,char path[],int pathLength)//Êä³öËùÓĞÒ¶×Ó½Úµãµ½¸ù½ÚµãµÄÂ·¾¶
+void All_Path(treenode *tree,char path[],int pathLength)//è¾“å‡ºæ‰€æœ‰å¶å­èŠ‚ç‚¹åˆ°æ ¹èŠ‚ç‚¹çš„è·¯å¾„
 {
     int i;
 	if(tree)
@@ -47,7 +47,7 @@ void All_Path(treenode *tree,char path[],int pathLength)//Êä³öËùÓĞÒ¶×Ó½Úµãµ½¸ù½Ú
 		if(tree->lchild==NULL&&tree->rchild==NULL)
 		{
 			path[pathLength] = tree->data;
-			printf("%c½Úµãµ½¸ù½ÚµãµÄÂ·¾¶£º\n",tree->data);
+			printf("%cèŠ‚ç‚¹åˆ°æ ¹èŠ‚ç‚¹çš„è·¯å¾„ï¼š\n",tree->data);
 			for(i = pathLength;i>=0;i--)
 			{
 				printf("%c ",tree->data);
@@ -65,7 +65,7 @@ void All_Path(treenode *tree,char path[],int pathLength)//Êä³öËùÓĞÒ¶×Ó½Úµãµ½¸ù½Ú
 
 
 
-int Tree_Depth(treenode *tree){//¼ÆËãÊ÷µÄÉî¶È
+int Tree_Depth(treenode *tree){//è®¡ç®—æ ‘çš„æ·±åº¦
 	int i=0;
 	int j=0;
 	if(tree)
@@ -108,7 +108,7 @@ void Leaf_Load(treenode *tree)
     printf(" %c",tree->data);
 }
 
-void Preorder(treenode *tree){//Ç°Ğò±éÀú¶ş²æÊ÷
+void Preorder(treenode *tree){//å‰åºéå†äºŒå‰æ ‘
 	if(tree)
 	{
 		printf("%c ",tree->data);
@@ -118,7 +118,7 @@ void Preorder(treenode *tree){//Ç°Ğò±éÀú¶ş²æÊ÷
 
 }
 
-void Inorder(treenode *tree){//ÖĞĞò±éÀú¶ş²æÊ÷
+void Inorder(treenode *tree){//ä¸­åºéå†äºŒå‰æ ‘
 	if(tree)
 	{
 		Inorder(tree->lchild);
@@ -127,7 +127,7 @@ void Inorder(treenode *tree){//ÖĞĞò±éÀú¶ş²æÊ÷
 	}
 }
 
-void Postorder(treenode *tree){//ºóĞò±éÀú¶ş²æÊ÷
+void Postorder(treenode *tree){//ååºéå†äºŒå‰æ ‘
 	if(tree)
 	{
 		Postorder(tree->lchild);
@@ -144,34 +144,34 @@ int main()
     int pathLength=0;
 	Tree p_tree;
 	Init_Tree(p_tree);
-	printf("¿Õ½ÚµãÓÃ '0' ±íÊ¾~\n");
+	printf("ç©ºèŠ‚ç‚¹ç”¨ '0' è¡¨ç¤º~\n");
 
 	Creat_Tree(&p_tree);
-	printf("¸ÃÊ÷µÄÉî¶ÈÎª£º %d\n\n",Tree_Depth(p_tree));
+	printf("è¯¥æ ‘çš„æ·±åº¦ä¸ºï¼š %d\n\n",Tree_Depth(p_tree));
 
-	printf("½ÚµãµÄ¸öÊıÎª£º%d\n\n",Node_count(p_tree));
+	printf("èŠ‚ç‚¹çš„ä¸ªæ•°ä¸ºï¼š%d\n\n",Node_count(p_tree));
 
-	printf("Ò¶×Ó½ÚµãµÄ¸öÊıÎª:   %d\n\n",Leaf_Node_count(p_tree));
+	printf("å¶å­èŠ‚ç‚¹çš„ä¸ªæ•°ä¸º:   %d\n\n",Leaf_Node_count(p_tree));
 
-	printf("¶ÈÊıÎª1µÄ½Úµã¸öÊı£º%d\n\n",Leaf_Node_count(p_tree));
+	printf("åº¦æ•°ä¸º1çš„èŠ‚ç‚¹ä¸ªæ•°ï¼š%d\n\n",Leaf_Node_count(p_tree));
 
 
 	printf("\n");
 
-	printf("Ç°Ğò±éÀú¶ş²æÊ÷£º\n");
+	printf("å‰åºéå†äºŒå‰æ ‘ï¼š\n");
 	Preorder(p_tree);
 	printf("\n\n");
 
-	printf("ÖĞĞò±éÀú¶ş²æÊ÷£º\n");
+	printf("ä¸­åºéå†äºŒå‰æ ‘ï¼š\n");
 
 	Inorder(p_tree);
 	printf("\n\n");
 
-	printf("ºóĞò±éÀú¶ş²æÊ÷£º\n");
+	printf("ååºéå†äºŒå‰æ ‘ï¼š\n");
 	Postorder(p_tree);
 	printf("\n\n");
 
-    printf("Ò¶×Ó½Úµãµ½¸ù½ÚµãµÄÂ·¾¶£º\n");
+    printf("å¶å­èŠ‚ç‚¹åˆ°æ ¹èŠ‚ç‚¹çš„è·¯å¾„ï¼š\n");
     All_Path(p_tree,path,pathLength);
     printf("\n");
 
